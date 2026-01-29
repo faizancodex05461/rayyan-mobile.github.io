@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rayyan Mobile & Repairing — Fast & Professional Mobile Repairing Service</title>
+  <meta name="description" content="Rayyan Mobile & Repairing - Fast & Professional Mobile Repairing Service. Charging repair, battery replacement, display/touch repair, water damage repair, FRP/software, speaker/mic, camera repair." />
+  <!-- Mobile-first responsive, dark-tech gradient, fast-loading (minimal external resources) -->
+  <style>
+    /* ========== VARIABLES (Easy customization) ========== */
+    :root{
+      --bg-gradient: linear-gradient(180deg,#07112a 0%, #000000 60%);
+      --card-bg: rgba(255,255,255,0.03);
+      --muted: rgba(255,255,255,0.75);
+      --accent-1: #06b6d4; /* teal/cyan */
+      --accent-2: #3b82f6; /* blue */
+      --btn-gradient: linear-gradient(90deg,var(--accent-2),var(--accent-1));
+      --glass-border: rgba(255,255,255,0.04);
+      --max-width: 1100px;
+      --radius: 12px;
+      --transition-fast: 200ms;
+      --transition-smooth: 350ms;
+    }
+
+    /* ========== BASE LAYOUT ========== */
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg-gradient);
+      color:#ffffff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior: smooth; /* smooth scrolling */
+      line-height:1.45;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:1.25rem;
+      box-sizing:border-box;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.12));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* ========== NAV ========== */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:0.5rem;
+      padding:0.6rem 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .brand .logo {
+      width:44px;
+      height:44px;
+      display:inline-grid;
+      place-items:center;
+      background: linear-gradient(135deg,var(--accent-2),var(--accent-1));
+      border-radius:10px;
+      box-shadow: 0 6px 18px rgba(3,7,18,0.6);
+      font-weight:700;
+      font-size:18px;
+      color:#fff;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+      margin-left:auto;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:0.95rem;
+      padding:0.45rem 0.6rem;
+      border-radius:8px;
+      transition: all var(--transition-fast) ease;
+    }
+    .nav-links a:hover{
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    /* ========== HERO ========== */
+    .hero{
+      padding:2.2rem 0 1.2rem;
+      display:flex;
+      align-items:flex-start;
+      gap:1rem;
+    }
+
+    .hero-left{
+      flex:1 1 420px;
+    }
+
+    .shop-title{
+      font-size:1.6rem;
+      margin:0 0 0.35rem;
+      letter-spacing:-0.4px;
+      line-height:1.05;
+    }
+
+    .shop-title strong{
+      display:block;
+      font-size:2.6rem;
+      font-weight:800;
+      color:#ffffff;
+      text-shadow: 0 8px 30px rgba(3,7,18,0.6);
+    }
+
+    .tagline{
+      color:var(--muted);
+      margin:0.4rem 0 1rem;
+      font-size:1rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:0.6rem;
+      flex-wrap:wrap;
+      margin-top:0.6rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:0.6rem;
+      padding:0.65rem 0.85rem;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      color:#fff;
+      text-decoration:none;
+      background: var(--btn-gradient);
+      box-shadow: 0 8px 24px rgba(6,11,23,0.5);
+      font-weight:600;
+      transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, opacity var(--transition-fast);
+      font-size:0.95rem;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      box-shadow:none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+
+    .btn:hover{ transform: translateY(-4px); }
+
+    .btn:active{ transform: translateY(-1px); }
+
+    .hero-right{
+      display:none; /* show on larger screens */
+      flex:0 0 320px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* ========== SERVICES (HIGHLIGHTED) ========== */
+    .section{
+      margin-top:1.15rem;
+      padding:1.25rem 0;
+    }
+
+    .section .heading{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:0.85rem;
+    }
+
+    .title-lg{
+      font-size:1.15rem;
+      font-weight:700;
+      margin:0;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:0.95rem;
+      margin:0.2rem 0 0;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:0.7rem;
+    }
+
+    /* Service Card */
+    .service-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      padding:0.9rem;
+      border-radius:14px;
+      display:flex;
+      gap:0.85rem;
+      align-items:center;
+      transition: transform var(--transition-smooth) cubic-bezier(.2,.9,.3,1), box-shadow var(--transition-smooth);
+      transform: translateY(0);
+      cursor:default;
+      will-change: transform, box-shadow;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.35);
+      overflow:hidden;
+    }
+
+    .service-card .icon-wrap{
+      width:56px;
+      height:56px;
+      min-width:56px;
+      min-height:56px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .service-card h4{
+      margin:0;
+      font-size:1rem;
+      font-weight:700;
+    }
+    .service-card p{
+      margin:0.25rem 0 0;
+      color:var(--muted);
+      font-size:0.88rem;
+    }
+
+    .service-card:hover{
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(3,6,18,0.6), 0 0 30px rgba(59,130,246,0.06);
+      border-color: rgba(59,130,246,0.14);
+    }
+
+    /* Simple glow accent on hover */
+    .service-card:hover::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      box-shadow: inset 0 -60px 120px rgba(3,182,212,0.02);
+      border-radius:inherit;
+    }
+
+    /* ========== SERVICE IMAGES SECTION ========== */
+    .images-wrap{
+      margin-top:0.5rem;
+      display:flex;
+      gap:0.9rem;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    /* Mobile: horizontal scroll with snap */
+    .img-scroller{
+      display:flex;
+      gap:0.75rem;
+      overflow-x:auto;
+      padding-bottom:6px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .img-card{
+      flex: 0 0 76%;
+      border-radius:12px;
+      overflow:hidden;
+      scroll-snap-align: start;
+      background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.4));
+      border:1px solid rgba(255,255,255,0.03);
+      min-height:160px;
+      position:relative;
+    }
+
+    .img-card img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* Larger screens: grid for images */
+    .images-grid{
+      display:none;
+      gap:0.75rem;
+    }
+
+    /* ========== WHY CHOOSE US ========== */
+    .features{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:0.6rem;
+      margin-top:0.5rem;
+    }
+
+    .feature-item{
+      display:flex;
+      gap:0.75rem;
+      align-items:flex-start;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:0.8rem;
+      border:1px solid var(--glass-border);
+    }
+    .feature-item .fi-icon{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      color:var(--accent-2);
+      font-weight:700;
+    }
+
+    /* ========== MAP & CONTACT ========== */
+    .map-wrap{
+      margin-top:0.75rem;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--glass-border);
+    }
+
+    .map-actions{
+      display:flex;
+      gap:0.6rem;
+      padding:0.75rem;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08));
+    }
+
+    .map-actions .phone{
+      font-weight:700;
+      color:#fff;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer{
+      margin-top:1.25rem;
+      padding:1rem 0;
+      border-top:1px solid rgba(255,255,255,0.03);
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* ========== RESPONSIVE LAYOUTS ========== */
+    @media (min-width:640px){
+      .hero{
+        padding-top:2.6rem;
+      }
+      .shop-title strong{ font-size:3rem; }
+      .service-card{ padding:1.05rem; }
+      .services-grid{ grid-template-columns: repeat(3,1fr); }
+      .img-card{ flex: 0 0 48%; min-height:180px; }
+    }
+
+    @media (min-width:880px){
+      .container{
+        padding:2rem;
+      }
+      .hero{
+        align-items:center;
+      }
+      .hero-right{
+        display:flex;
+      }
+      .hero-left{
+        padding-right:1rem;
+      }
+      .services-grid{ grid-template-columns: repeat(3,1fr); }
+      .images-grid{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+      }
+      .img-scroller{ display:none; } /* use grid on larger screens */
+      .img-card{ min-height:220px; flex:unset; }
+      .features{ grid-template-columns: repeat(2,1fr); }
+    }
+
+    /* Extra large */
+    @media (min-width:1200px){
+      .services-grid{ grid-template-columns: repeat(4,1fr); }
+    }
+
+    /* Accessibility focus */
+    a:focus, button:focus{ outline: 3px solid rgba(59,130,246,0.18); outline-offset:3px; }
+
+    /* Lightweight reveal animation */
+    .reveal {
+      opacity:0;
+      transform: translateY(8px);
+      transition: opacity 420ms ease, transform 420ms cubic-bezier(.2,.9,.3,1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav" aria-label="Main navigation">
+      <a href="#hero" class="brand" onclick="scrollToId('hero')">
+        <div class="logo" aria-hidden="true">R</div>
+        <div>
+          <div style="font-weight:800;">Rayyan Mobile & Repairing</div>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:0.15rem;font-weight:600;">Fast & Professional Mobile Repairing Service</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Pages">
+        <a href="#services" onclick="scrollToId('services')">Services</a>
+        <a href="#visuals" onclick="scrollToId('visuals')">Gallery</a>
+        <a href="#why" onclick="scrollToId('why')">Why Us</a>
+        <a href="#contact" onclick="scrollToId('contact')">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container" id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <p class="shop-title">
+          <strong>Rayyan Mobile & Repairing</strong>
+        </p>
+        <p class="tagline">Fast & Professional Mobile Repairing Service</p>
+
+        <div class="cta-row">
+          <!-- Call Now (auto dial) -->
+          <a class="btn" href="tel:+918482989634" aria-label="Call Rayyan Mobile & Repairing">
+            <!-- Phone icon (inline svg) -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.2a14.9 14.9 0 006.3 6.3l1.9-1.9a1 1 0 01.9-.25c1 .25 2 .4 3 .4a1 1 0 011 1v2.9a1 1 0 01-1 1C9.6 20.9 3.1 14.4 3.1 6.9A1 1 0 014.1 6h3a1 1 0 011 1c0 1 .15 2 .4 3a1 1 0 01-.25.9L6.6 10.2z" fill="#fff"/></svg>
+            Call Now
+          </a>
+
+          <!-- WhatsApp -->
+          <a class="btn" href="https://wa.me/918482989634" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M20 3.9A10 10 0 003.9 20L3 22l2.2-.9A10 10 0 1020 3.9zM12 5.9a6.1 6.1 0 016.1 6.1A6.1 6.1 0 0112 18.1 6.1 6.1 0 015.9 12 6.1 6.1 0 0112 5.9z" fill="#fff"/></svg>
+            WhatsApp
+          </a>
+
+          <!-- Open in Google Maps -->
+          <a class="btn secondary" href="https://maps.app.goo.gl/9AwfGpTrwQseAhAX7" target="_blank" rel="noopener" aria-label="Open location in Google Maps">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1012 6.5a2.5 2.5 0 000 5z" fill="#fff"/></svg>
+            Open in Maps
+          </a>
+        </div>
+
+        <p style="margin-top:0.8rem;color:var(--muted);font-size:0.9rem;">Call or message to book an inspection — walk-ins welcome.</p>
+      </div>
+
+      <!-- Optional hero visual (hidden on small screens) -->
+      <div class="hero-right" aria-hidden="true">
+        <div style="width:100%;max-width:320px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);box-shadow:0 12px 36px rgba(0,0,0,0.6)">
+          <img src="https://images.unsplash.com/photo-1523475496153-3aa2cf2f2c3f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3d0a2f6098b9d4a9a57f1b4b74d9a733" alt="Technician repairing a phone" style="width:100%;height:auto;display:block;object-fit:cover;">
+        </div>
+      </div>
+    </section>
+
+    <!-- REPAIRING SERVICES (HEAVILY HIGHLIGHTED) -->
+    <section id="services" class="section reveal" aria-labelledby="services-heading">
+      <div class="heading">
+        <div>
+          <h2 class="title-lg" id="services-heading">Repairing Services</h2>
+          <p class="subtitle">Expert, quick, and reliable phone repairs — covered by warranty.</p>
+        </div>
+      </div>
+
+      <div class="services-grid" role="list" aria-label="List of services">
+        <!-- 1 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s1">
+          <div class="icon-wrap" aria-hidden="true">
+            <!-- Bolt / charging icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" fill="#3b82f6"/></svg>
+          </div>
+          <div>
+            <h4 id="s1">Charging Problem Repair</h4>
+            <p>Fast & Reliable Repair</p>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s2">
+          <div class="icon-wrap" aria-hidden="true">
+            <!-- Battery icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="16" height="10" rx="2" fill="#06b6d4"/><rect x="19" y="10" width="1.8" height="4" rx="0.9" fill="#06b6d4"/></svg>
+          </div>
+          <div>
+            <h4 id="s2">Battery Replacement</h4>
+            <p>Genuine, fast replacement</p>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s3">
+          <div class="icon-wrap">
+            <!-- Display / touch icon -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="3" width="14" height="18" rx="2" fill="#3b82f6"/><circle cx="12" cy="18" r="1" fill="#fff"/></svg>
+          </div>
+          <div>
+            <h4 id="s3">Display / Touch Repair</h4>
+            <p>Screen replacements & touch fixes</p>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s4">
+          <div class="icon-wrap">
+            <!-- Water damage -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 7 7 7 11.5A5 5 0 0017 11.5C17 7 12 2 12 2z" fill="#06b6d4"/></svg>
+          </div>
+          <div>
+            <h4 id="s4">Water Damage Repair</h4>
+            <p>Quick drying & cleaning service</p>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s5">
+          <div class="icon-wrap">
+            <!-- Software/FRP -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h3l3 8 5-16h3" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <div>
+            <h4 id="s5">FRP / Software Issues</h4>
+            <p>Unlocks, updates & diagnostics</p>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s6">
+          <div class="icon-wrap">
+            <!-- Speaker / mic -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#06b6d4"/></svg>
+          </div>
+          <div>
+            <h4 id="s6">Speaker / Mic Repair</h4>
+            <p>Clear audio restoration</p>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="service-card reveal" role="listitem" tabindex="0" aria-labelledby="s7">
+          <div class="icon-wrap">
+            <!-- Camera -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" fill="#3b82f6"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg>
+          </div>
+          <div>
+            <h4 id="s7">Camera Repair</h4>
+            <p>Back & front camera fixes</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICE IMAGES / VISUAL SECTION -->
+    <section id="visuals" class="section reveal" aria-labelledby="visuals-heading">
+      <div class="heading">
+        <div>
+          <h2 class="title-lg" id="visuals-heading">Service Gallery</h2>
+          <p class="subtitle">Real photos of repairs and technicians — professional and realistic.</p>
+        </div>
+      </div>
+
+      <!-- Mobile: horizontal scroller with snap -->
+      <div class="images-wrap">
+        <div class="img-scroller" aria-label="Repair images gallery">
+          <figure class="img-card" aria-hidden="false">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=70" alt="Technician repairing a phone motherboard" loading="lazy">
+          </figure>
+
+          <figure class="img-card">
+            <img src="https://images.unsplash.com/photo-1585386959984-a4155221f2a0?auto=format&fit=crop&w=1200&q=70" alt="Phone screen repair replacement" loading="lazy">
+          </figure>
+
+          <figure class="img-card">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=70" alt="Battery replacement for mobile phone" loading=
